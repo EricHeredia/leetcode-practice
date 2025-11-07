@@ -32,19 +32,18 @@
 // - Same worst case: O(n) time, O(n) space
 
 function containsDuplicate(nums: number[]): boolean {
-    const numsSet = new Set<number>();
+  const numsSet = new Set<number>();
 
-    for (const num of nums) {
-        if (numsSet.has(num)) {
-            return true;
-        }
-
-        numsSet.add(num);
+  for (const num of nums) {
+    if (numsSet.has(num)) {
+      return true;
     }
 
-    return false;
-}
+    numsSet.add(num);
+  }
 
+  return false;
+}
 
 //function containsDuplicate(nums: number[]): boolean {
 //    const numsSet: Set<number> = new Set();
@@ -56,7 +55,6 @@ function containsDuplicate(nums: number[]): boolean {
 
 //    return false;
 //};
-
 
 //function containsDuplicate(nums: number[]): boolean {
 //    const numsSet = new Set(nums);

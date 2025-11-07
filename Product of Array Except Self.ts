@@ -45,7 +45,6 @@ function productExceptSelf(nums: number[]): number[] {
   return answer;
 }
 
-
 //function productExceptSelf(nums: number[]): number[] {
 //  const numsLength = nums.length;
 //  const left: number[] = [];

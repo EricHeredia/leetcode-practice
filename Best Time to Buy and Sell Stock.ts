@@ -23,18 +23,18 @@
 // - Same time/space complexity: O(n) time, O(1) space
 
 function maxProfit(prices: number[]): number {
-    if (prices.length < 2) return 0;
+  if (prices.length < 2) return 0;
 
-    let minPrice: number = prices[0];
-    let maxProfit: number = 0;
+  let minPrice: number = prices[0];
+  let maxProfit: number = 0;
 
-    for (const price of prices) {
-        minPrice = Math.min(minPrice, price);
-        const currentProfit = price - minPrice;
-        maxProfit = Math.max(maxProfit, currentProfit);
-    }
+  for (const price of prices) {
+    minPrice = Math.min(minPrice, price);
+    const currentProfit = price - minPrice;
+    maxProfit = Math.max(maxProfit, currentProfit);
+  }
 
-    return maxProfit;
+  return maxProfit;
 }
 
 //function maxProfit(prices: number[]): number {
@@ -45,7 +45,7 @@ function maxProfit(prices: number[]): number {
 //        if (price < minPrice) {
 //            minPrice = price;
 //        }
-//        
+//
 //        if (price - minPrice > maxProfit) {
 //            maxProfit = price - minPrice;
 //        }

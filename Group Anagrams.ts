@@ -28,22 +28,22 @@
 // "eat" -> [1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0] -> "1#0#0#0#1#0#0#0#0#0#0#0#0#0#0#0#0#0#0#1#0#0#0#0#0#0"
 
 function groupAnagrams(strs: string[]): string[][] {
-    const anagramMap: Map<string, string[]> = new Map();
-    
-    for (const word of strs) {
-        const sortedWord: string = word.split('').sort().join('');
+  const anagramMap: Map<string, string[]> = new Map();
 
-        const group = anagramMap.get(sortedWord) ?? [];
-        group.push(word);
-        anagramMap.set(sortedWord, group);
-    }
+  for (const word of strs) {
+    const sortedWord: string = word.split("").sort().join("");
 
-    return Array.from(anagramMap.values());
-};
+    const group = anagramMap.get(sortedWord) ?? [];
+    group.push(word);
+    anagramMap.set(sortedWord, group);
+  }
+
+  return Array.from(anagramMap.values());
+}
 
 //function groupAnagrams(strs: string[]): string[][] {
 //    const anagramMap: Map<string, string[]> = new Map();
-//    
+//
 //    for (const word of strs) {
 //        const sortedWord: string = word.split('').sort().join('');
 //

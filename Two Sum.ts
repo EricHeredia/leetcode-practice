@@ -1,13 +1,13 @@
 // Problem
-// Find two numbers in an array that add up to a target value. 
+// Find two numbers in an array that add up to a target value.
 // Return their indices.
 //
 // First Attempt (Brute Force)
-// I used nested iteration with findIndex() to check each number 
+// I used nested iteration with findIndex() to check each number
 // against all others.
 //
 // Problem
-// O(n²) time complexity because findIndex() scans the 
+// O(n²) time complexity because findIndex() scans the
 // entire array for each element.
 //
 // Second Attempt (Hash Map)
@@ -21,20 +21,20 @@
 // - Trade-off: O(n) extra space for the map
 
 function twoSum(nums: number[], target: number): number[] {
-    const map = new Map<number, number>();
+  const map = new Map<number, number>();
 
-    for (let i = 0; i < nums.length; i++) {
-        const complement = target - nums[i];
+  for (let i = 0; i < nums.length; i++) {
+    const complement = target - nums[i];
 
-        if (map.has(complement)) {
-            return [map.get(complement)!, i];
-        }
-
-        map.set(nums[i], i)
+    if (map.has(complement)) {
+      return [map.get(complement)!, i];
     }
 
-    throw new Error("No solution found");
-};
+    map.set(nums[i], i);
+  }
+
+  throw new Error("No solution found");
+}
 
 //function twoSum(nums: number[], target: number): number[] {
 //    for (let i = 0; i < nums.length; i++) {

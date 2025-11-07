@@ -16,31 +16,32 @@
 // - Trade-off: O(n) space for the stack in worst case (all opening brackets)
 
 function isValid(s: string): boolean {
-    type ClosingBracket = ')' | ']' | '}';
-    type OpeningBracket = '(' | '[' | '{';
+  type ClosingBracket = ")" | "]" | "}";
+  type OpeningBracket = "(" | "[" | "{";
 
-    const stack: string[] = [];
-    const bracketPairs: Record<ClosingBracket, OpeningBracket> = {
-        ')':'(',
-        ']':'[',
-        '}':'{'
-    };
+  const stack: string[] = [];
+  const bracketPairs: Record<ClosingBracket, OpeningBracket> = {
+    ")": "(",
+    "]": "[",
+    "}": "{",
+  };
 
-    const isClosingBracket = (bracket: string): bracket is ClosingBracket => bracket in bracketPairs;
-    const peek = (): string | undefined => stack[stack.length -1];
+  const isClosingBracket = (bracket: string): bracket is ClosingBracket =>
+    bracket in bracketPairs;
+  const peek = (): string | undefined => stack[stack.length - 1];
 
-    for (const currentBracket of s) {
-        if (isClosingBracket(currentBracket)) {
-            // Closing bracket
-            if (stack.length === 0 || peek() !== bracketPairs[currentBracket]) {
-                return false;
-            }
-            stack.pop()
-        } else {
-            // Opening bracket
-            stack.push(currentBracket);
-        }
+  for (const currentBracket of s) {
+    if (isClosingBracket(currentBracket)) {
+      // Closing bracket
+      if (stack.length === 0 || peek() !== bracketPairs[currentBracket]) {
+        return false;
+      }
+      stack.pop();
+    } else {
+      // Opening bracket
+      stack.push(currentBracket);
     }
+  }
 
-    return stack.length === 0;
-};
+  return stack.length === 0;
+}

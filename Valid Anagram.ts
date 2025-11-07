@@ -27,32 +27,31 @@
 // - Avoids creating extra arrays/strings from sorting
 
 function isAnagram(s: string, t: string): boolean {
-    if (s.length !== t.length) return false;
+  if (s.length !== t.length) return false;
 
-    const charCount = new Map();
+  const charCount = new Map();
 
-    for (const char of s) {
-        charCount.set(char, (charCount.get(char) || 0) + 1);
+  for (const char of s) {
+    charCount.set(char, (charCount.get(char) || 0) + 1);
+  }
+
+  for (const char of t) {
+    if (charCount.has(char)) {
+      charCount.set(char, charCount.get(char) - 1);
+      if (charCount.get(char) < 0) {
+        return false;
+      }
+    } else {
+      return false;
     }
+  }
 
-    for (const char of t) {
-        if (charCount.has(char)) {
-            charCount.set(char, charCount.get(char) - 1);
-            if (charCount.get(char) < 0) {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    return true;
+  return true;
 }
-
 
 //function isAnagram(s: string, t: string): boolean {
 //    if (s.length !== t.length) return false;
-//    
+//
 //    const sSorted = s.split('').sort().join('');
 //    const tSorted = t.split('').sort().join('');
 //
